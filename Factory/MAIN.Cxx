@@ -18,6 +18,7 @@ using std::endl;
 using std::map;
 using std::string;
 using std::vector;
+using std::make_unique;
 
 typedef unsigned __int16 un16;
 typedef unsigned int     unInt;
@@ -101,6 +102,7 @@ enum mapItem {
 	 battery,
 	 motor,
 	 heatSink,
+	 coolingSystem,
 	 turboMotor,
 
 	 wire,
@@ -189,7 +191,231 @@ enum mapItem {
 };
 
 enum mapRecipe {
+	limestone_low1_r,
+	limestone_mid1_r,
+	limestone_hig1_r,
+	ironOre_low1_r,
+	ironOre_mid1_r,
+	ironOre_hig1_r,
+	copperOre_low1_r,
+	copperOre_mid1_r,
+	copperOre_hig1_r,
+	caterium_low1_r,
+	caterium_mid1_r,
+	caterium_hig1_r,
+	coal_low1_r,
+	coal_mid1_r,
+	coal_hig1_r,
+	rawQuartz_low1_r,
+	rawQuartz_mid1_r,
+	rawQuatrz_hig1_r,
+	sulfur_low1_r,
+	sulfur_mid1_r,
+	sulfur_hig1_r,
+	bauxite_low1_r,
+	bauxite_mid1_r,
+	bauxite_hig1_r,
+	SAMOre_low1_r,
+	SAMOre_mid1_r,
+	SAMOre_hig1_r,
+	uranium_low1_r,
+	uranium_mid1_r,
+	uranium_hig1_r,
+	limestone_low2_r,
+	limestone_mid2_r,
+	limestone_hig2_r,
+	ironOre_low2_r,
+	ironOre_mid2_r,
+	ironOre_hig2_r,
+	copperOre_low2_r,
+	copperOre_mid2_r,
+	copperOre_hig2_r,
+	caterium_low2_r,
+	caterium_mid2_r,
+	caterium_hig2_r,
+	coal_low2_r,
+	coal_mid2_r,
+	coal_hig2_r,
+	rawQuartz_low2_r,
+	rawQuartz_mid2_r,
+	rawQuatrz_hig2_r,
+	sulfur_low2_r,
+	sulfur_mid2_r,
+	sulfur_hig2_r,
+	bauxite_low2_r,
+	bauxite_mid2_r,
+	bauxite_hig2_r,
+	SAMOre_low2_r,
+	SAMOre_mid2_r,
+	SAMOre_hig2_r,
+	uranium_low2_r,
+	uranium_mid2_r,
+	uranium_hig2_r,
+	limestone_low3_r,
+	limestone_mid3_r,
+	limestone_hig3_r,
+	ironOre_low3_r,
+	ironOre_mid3_r,
+	ironOre_hig3_r,
+	copperOre_low3_r,
+	copperOre_mid3_r,
+	copperOre_hig3_r,
+	caterium_low3_r,
+	caterium_mid3_r,
+	caterium_hig3_r,
+	coal_low3_r,
+	coal_mid3_r,
+	coal_hig3_r,
+	rawQuartz_low3_r,
+	rawQuartz_mid3_r,
+	rawQuatrz_hig3_r,
+	sulfur_low3_r,
+	sulfur_mid3_r,
+	sulfur_hig3_r,
+	bauxite_low3_r,
+	bauxite_mid3_r,
+	bauxite_hig3_r,
+	SAMOre_low3_r,
+	SAMOre_mid3_r,
+	SAMOre_hig3_r,
+	uranium_low3_r,
+	uranium_mid3_r,
+	uranium_hig3_r,
+
+	ironIngot_r,
+	copperOre_r,
+	cateriumOre_r,
+	steelIngot_r,
+	aluminumIngot_r,
+
+	concrete_r,
+	quartzCrystal_r,
+	silica_r,
+	copperPower_r,
+	petroleumCoke_r,
+	aluminumScrap_r,
+
+	alienProtein_hatcher_r,
+	alienProtein_hog_r,
+	alienProtein_spitter_r,
+	alienProtein_stinger_r,
+	alienDNACapsule_r,
+
+	water_ext_r,
+	water_well_low_r,
+	water_well_mid_r,
+	water_well_hig_r,
+	crudeOil_ext_low_r,
+	crudeOil_ext_mid_r,
+	crudeOil_ext_hig_r,
+	crudeOil_well_low_r,
+	crudeOil_well_mid_r,
+	crudeOil_well_hig_r,
+	fuel_r,
+	residualFuel_r,
+	liquidBiofuel_r,
+	aluminaSolution_r,
+	sulfuricAcid_r,
+	nitricAcid_r,
+	nitrogenGas_low_r,
+	nitrogenGas_mid_r,
+	nitrogenGas_hig_r,
+
+	ironRod_r,
+	screw_r,
+	ironPlate_r,
+	reinforcedIronPlate_r,
+	copperSheet_r,
+	alcladAluminumSheet_r,
+	aluminumCasing_r,
+	steelPipe_r,
+	steelBeam_r,
+	encasedIndustrialBeam_r,
+	modularFrame_r,
+	heavyModularFrame_r,
+	fusedModularFrame_r,
+	fabric_r,
+	plastic_r,
+	rubber_r,
+
+	rotor_r,
+	stator_r,
+	battery_r,
+	motor_r,
+	heatSink_r,
+	coolingSystem_r,
+	turboMotor_r,
+
+	wire_r,
+	cable_r,
+	quickwire_r,
+	circuitBoard_r,
+	AILimiter_r,
+	hightSpeedConnector_r,
+
+	computer_r,
+	supercomputer_r,
+	quantumComputer_r,
+	radioControlUnit_r,
+	crystalOscillator_r,
+	superpositionOscillator_r,
+
+	emptyCanister_r,
+	emptyFludioTank_r,
+	pressureConversionCube_r,
+	packagedWater_r,
+	packagedAluminaSolution_r,
+	packagedSulfuricAcid_r,
+	packagedNitricAcid_r,
+	packagedNitrogenGass_r,
+
+	biomass_r,
+	packagedOil_r,
+	packagedHeavyOilResidue_r,
+	solidBiofuel_r,
+	packagedFuel_r,
+	packagedLiquidBiofuel_r,
+	packagedTurbofuel_r,
+	uraniumFuelRod_r,
+	plutoniumFuelRod_r,
+	blackPowder_r,
+	smokelessPower_r,
+	gasFilter_r,
+	colorCartridge_r,
+	beacon_r,
+	iodineInfusedFilter_r,
+
+	ironRebar_r,
+	stunRebar_r,
+	shatterRebar_r,
+	explosiveRebar_r,
+	rifleAmmo_r,
+	homingRifleAmmo_r,
+	turboRifleAmmo_r,
+	nobelisk_r,
+	gasNobelisk_r,
+	pulseNobelisk_r,
+	clusterNobelisk_r,
+	nukeNobelisk_r,
+
+	electromagneticControlRod_r,
+	encasedUraniumCell_r,
+	nonFissileUranium_r,
+	plutoniumPellet_r,
+	encasedPlutoniumCell_r,
+
+	uraniumWaste_r,
+	plutoniumWaste_r,
 	
+	smartPlating_r,
+	versatileFramework_r,
+	automatedWireing_r,
+	modularEngine_r,
+	adaptiveControlUnit_r,
+	assemblyDirectorSystem_r,
+	magneticFieldGenerator_r,
+	thermalPropulsionRocket_r,
+	nuclearPasta_r,
 };
 
 enum mapBuilding {
@@ -258,7 +484,7 @@ private:
 	un16            id;
 	string          displayName;
 	unInt           sinkPoint;
-	recipe*         stdRecipe;
+	vector<recipe*> stdRecipe;
 	vector<recipe*> altRecipe;
 	bool            isLiquid;
 	mods            cameFrom;
@@ -269,7 +495,7 @@ public:
 		un16            _id,
 		string          _displayName,
 		unInt           _sinkPoint,
-		recipe*         _stdRecipe,
+		vector<recipe*> _stdRecipe,
 		vector<recipe*> _altRecipe,
 		bool            _isLiquid,
 		mods            _cameFrom
@@ -328,6 +554,7 @@ private:
 	string            displayName;
 	vector<itemStack> buildCost;
 	vector<itemIo>    itemPath;
+	bool              isGenerator;
 	lDouble           voltageUse;
 	lDouble           lowVoltageUse;
 	lDouble           highVoltageUse;
@@ -341,6 +568,7 @@ public:
 		string            _displayName,
 		vector<itemStack> _buildCost,
 		vector<itemIo>    _itemPath,
+		bool              _isGenerator,
 		lDouble           _voltageUse,
 		mods              _cameFrom
 	);
@@ -349,6 +577,7 @@ public:
 		string            _displayName,
 		vector<itemStack> _buildCost,
 		vector<itemIo>    _itemPath,
+		bool              _isGenerator,
 		lDouble           _normalLowVoltageUse,
 		lDouble           _normalHighVoltageUse,
 		mods              _cameFrom
@@ -391,26 +620,26 @@ public:
 
 class recipe {
 private:
-	un16          id;
-	string        displayName;
-	bool          isAlt;
-	vector<item*> itemOut;
-	vector<item*> itemIn;
-	building*     productionOn;
-	lDouble       productionTime;
-	mods          cameFrom;
+	un16              id;
+	string            displayName;
+	bool              isAlt;
+	vector<itemStack> itemOut;
+	vector<itemStack> itemIn;
+	building*         productionOn;
+	lDouble           productionTime;
+	mods              cameFrom;
 
 public:
 	recipe();
 	recipe(
-		un16          _id,
-		string        _displayName,
-		bool          _isAlt,
-		vector<item*> _itemOut,
-		vector<item*> _itemIn,
-		building*     _productionOn,
-		lDouble       _productionTime,
-		mods          _cameFrom
+		un16              _id,
+		string            _displayName,
+		bool              _isAlt,
+		vector<itemStack> _itemOut,
+		vector<itemStack> _itemIn,
+		building*         _productionOn,
+		lDouble           _productionTime,
+		mods              _cameFrom
 	);
 
 	auto getId();
@@ -429,7 +658,7 @@ item::item() {
 	this->id          = un16();
 	this->displayName = string();
 	this->sinkPoint   = unInt();
-	this->stdRecipe   = nullptr;
+	this->stdRecipe   = vector<recipe*>();
 	this->altRecipe   = vector<recipe*>();
 	this->isLiquid    = bool();
 	this->cameFrom    = mods::null;
@@ -467,8 +696,8 @@ recipe::recipe() {
 	this->id             = un16();
 	this->displayName    = string();
 	this->isAlt          = bool();
-	this->itemOut        = vector<item*>();
-	this->itemIn         = vector<item*>();
+	this->itemOut        = vector<itemStack>();
+	this->itemIn         = vector<itemStack>();
 	this->productionOn   = nullptr;
 	this->productionTime = lDouble();
 	this->cameFrom       = mods::null;
@@ -480,7 +709,7 @@ item::item(
 	un16            _id,
 	string          _displayName,
 	unInt           _sinkPoint,
-	recipe*         _stdRecipe,
+	vector<recipe*> _stdRecipe,
 	vector<recipe*> _altRecipe,
 	bool            _isLiquid,
 	mods            _cameFrom
@@ -526,6 +755,7 @@ building::building(
 	string            _displayName,
 	vector<itemStack> _buildCost,
 	vector<itemIo>    _itemPath,
+	bool              _isGenerator,
 	lDouble           _voltageUse,
 	mods              _cameFrom
 ) {
@@ -533,6 +763,7 @@ building::building(
 	this->displayName       = _displayName;
 	this->buildCost         = _buildCost;
 	this->itemPath          = _itemPath;
+	this->isGenerator       = _isGenerator;
 	this->voltageUse        = _voltageUse;
 	this->lowVoltageUse     = lDouble();
 	this->highVoltageUse    = lDouble();
@@ -545,6 +776,7 @@ building::building(
 	string            _displayName,
 	vector<itemStack> _buildCost,
 	vector<itemIo>    _itemPath,
+	bool              _isGenerator,
 	lDouble           _normalLowVoltageUse,
 	lDouble           _normalHighVoltageUse,
 	mods              _cameFrom
@@ -553,6 +785,7 @@ building::building(
 	this->displayName       = _displayName;
 	this->buildCost         = _buildCost;
 	this->itemPath          = _itemPath;
+	this->isGenerator       = _isGenerator;
 	this->voltageUse        = (_normalLowVoltageUse + _normalHighVoltageUse) / 2;
 	this->lowVoltageUse     = _normalLowVoltageUse;
 	this->highVoltageUse    = _normalHighVoltageUse;
@@ -569,14 +802,14 @@ buildingStack::buildingStack(
 }
 
 recipe::recipe(
-	un16          _id,
-	string        _displayName,
-	bool          _isAlt,
-	vector<item*> _itemOut,
-	vector<item*> _itemIn,
-	building*     _productionOn,
-	lDouble       _productionTime,
-	mods          _cameFrom
+	un16              _id,
+	string            _displayName,
+	bool              _isAlt,
+	vector<itemStack> _itemOut,
+	vector<itemStack> _itemIn,
+	building*         _productionOn,
+	lDouble           _productionTime,
+	mods              _cameFrom
 ) {
 	this->id           = _id;
 	this->displayName  = _displayName;
@@ -650,237 +883,248 @@ struct gameItems {
 };
 
 gameItems classInit() {
-	gameItems res;
+	gameItems result;
 
-	item limestone;
-	item ironOre;
-	item copperOre;
-	item cateriumOre;
-	item coal;
-	item rawQuartz;
-	item sulfur;
-	item bauxite;
-	item SAMOre;
-	item uranium;
+	//item limestone;
+	//item ironOre;
+	//item copperOre;
+	//item cateriumOre;
+	//item coal;
+	//item rawQuartz;
+	//item sulfur;
+	//item bauxite;
+	//item SAMOre;
+	//item uranium;
 
-	item ironIngot;
-	item copperIngot;
-	item cateriumIngot;
-	item steelIngot;
-	item aluminumIngot;
+	//item ironIngot;
+	//item copperIngot;
+	//item cateriumIngot;
+	//item steelIngot;
+	//item aluminumIngot;
 
-	item concrete;
-	item quartzCrystal;
-	item silica;
-	item copperPowder;
-	item polymerResin;
-	item petroleumCoke;
-	item aluminumScrap;
+	//item concrete;
+	//item quartzCrystal;
+	//item silica;
+	//item copperPowder;
+	//item polymerResin;
+	//item petroleumCoke;
+	//item aluminumScrap;
 
-	item alienProtein;
-	item alienDNACapsule;
+	//item alienProtein;
+	//item alienDNACapsule;
 
-	item water;
-	item crudeOil;
-	item heavyOilResidue;
-	item fuel;
-	item liquidBiofuel;
-	item turbofuel;
-	item aluminaSolution;
-	item sulfuricAcid;
-	item nitricAcid;
-	item nitrogenGas;
+	//item water;
+	//item crudeOil;
+	//item heavyOilResidue;
+	//item fuel;
+	//item liquidBiofuel;
+	//item turbofuel;
+	//item aluminaSolution;
+	//item sulfuricAcid;
+	//item nitricAcid;
+	//item nitrogenGas;
 
-	item ironRod;
-	item screw;
-	item ironPlate;
-	item reinforcedIronPlate;
-	item copperSheet;
-	item alcladAluminumSheet;
-	item aluminumCasing;
-	item steelPipe;
-	item steelBeam;
-	item encasedIndustrialBeam;
-	item modularFrame;
-	item heavyModularFrame;
-	item fusedModularFrame;
-	item fabric;
-	item plastic;
-	item rubber;
+	//item ironRod;
+	//item screw;
+	//item ironPlate;
+	//item reinforcedIronPlate;
+	//item copperSheet;
+	//item alcladAluminumSheet;
+	//item aluminumCasing;
+	//item steelPipe;
+	//item steelBeam;
+	//item encasedIndustrialBeam;
+	//item modularFrame;
+	//item heavyModularFrame;
+	//item fusedModularFrame;
+	//item fabric;
+	//item plastic;
+	//item rubber;
 
-	item rotor;
-	item stator;
-	item battery;
-	item motor;
-	item heatSink;
-	item coolingSystem;
-	item turboMotor;
+	//item rotor;
+	//item stator;
+	//item battery;
+	//item motor;
+	//item heatSink;
+	//item coolingSystem;
+	//item turboMotor;
 
-	item wire;
-	item cable;
-	item quickwire;
-	item circuitBoard;
-	item AILimitor;
-	item hightSpeedConnector;
+	//item wire;
+	//item cable;
+	//item quickwire;
+	//item circuitBoard;
+	//item AILimitor;
+	//item hightSpeedConnector;
 
-	item computer;
-	item supercomputer;
-	item quantumComputer;
-	item radioControlUnit;
-	item crystalOscillator;
-	item superpositionOscillator;
+	//item computer;
+	//item supercomputer;
+	//item quantumComputer;
+	//item radioControlUnit;
+	//item crystalOscillator;
+	//item superpositionOscillator;
 
-	item emptyCanister;
-	item emptyFluidTank;
-	item pressureConversionCube;
-	item packagedWater;
-	item packagedAluminaSolution;
-	item packagedSulfuricAcid;
-	item packagedNitricAcid;
-	item packagedNitrogenGas;
+	//item emptyCanister;
+	//item emptyFluidTank;
+	//item presultsureConversionCube;
+	//item packagedWater;
+	//item packagedAluminaSolution;
+	//item packagedSulfuricAcid;
+	//item packagedNitricAcid;
+	//item packagedNitrogenGas;
 
-	item leaves;
-	item mycelia;
-	item flowerPetals;
-	item wood;
-	item biomass;
-	item compactedCoal;
-	item packagedOil;
-	item packagedHeavyOilResidue;
-	item solidBiofuel;
-	item packagedFuel;
-	item packagedLiquidBiofuel;
-	item packagedTurbofuel;
-	item uraniumFuelRod;
-	item plutoniumFuelRod;
+	//item leaves;
+	//item mycelia;
+	//item flowerPetals;
+	//item wood;
+	//item biomass;
+	//item compactedCoal;
+	//item packagedOil;
+	//item packagedHeavyOilResidue;
+	//item solidBiofuel;
+	//item packagedFuel;
+	//item packagedLiquidBiofuel;
+	//item packagedTurbofuel;
+	//item uraniumFuelRod;
+	//item plutoniumFuelRod;
 
-	item blackPowder;
-	item smokelessPower;
-	item gasFilter;
-	item colorCartridge;
-	item beacon;
-	item iodineInfusedFilter;
+	//item blackPowder;
+	//item smokelessPower;
+	//item gasFilter;
+	//item colorCartridge;
+	//item beacon;
+	//item iodineInfusedFilter;
 
-	item ironRebar;
-	item stunRebar;
-	item shatterReber;
-	item explosiveRebar;
-	item rifleAmmo;
-	item homingRifleAmmo;
-	item turboRifleAmmo;
-	item nobelisk;
-	item gasNobelisk;
-	item pulseNobelisk;
-	item clusterNobelisk;
-	item nukeNobelisk;
+	//item ironRebar;
+	//item stunRebar;
+	//item shatterReber;
+	//item explosiveRebar;
+	//item rifleAmmo;
+	//item homingRifleAmmo;
+	//item turboRifleAmmo;
+	//item nobelisk;
+	//item gasNobelisk;
+	//item pulseNobelisk;
+	//item clusterNobelisk;
+	//item nukeNobelisk;
 
-	item electromagneticControlRod;
-	item encasedUraniumCell;
-	item nonFissileUranium;
-	item plutoniumPellet;
-	item encasedPlutoniumCell;
+	//item electromagneticControlRod;
+	//item encasedUraniumCell;
+	//item nonFissileUranium;
+	//item plutoniumPellet;
+	//item encasedPlutoniumCell;
 
-	item uraniumWaste;
-	item plutoniumWaste;
+	//item uraniumWaste;
+	//item plutoniumWaste;
 
-	item bluePowerSlug;
-	item yellowPowerSlug;
-	item purplePowerSlug;
-	item powerShard;
-	item FICSITCoupon;
-	item smartPlating;
-	item versatileFramework;
-	item automatedWiring;
-	item modularEngine;
-	item adaptiveControlUnit;
-	item assemblyDirectorSystem;
-	item magneticFieldGenerator;
-	item thermalPropulsionRocket;
-	item nuclearPasta;
+	//item bluePowerSlug;
+	//item yellowPowerSlug;
+	//item purplePowerSlug;
+	//item powerShard;
+	//item FICSITCoupon;
+	//item smartPlating;
+	//item versatileFramework;
+	//item automatedWiring;
+	//item modularEngine;
+	//item adaptiveControlUnit;
+	//item assemblyDirectorSystem;
+	//item magneticFieldGenerator;
+	//item thermalPropulsionRocket;
+	//item nuclearPasta;
 
-	item portableMiner;
+	//item portableMiner;
 
-	vector<itemStack> tempStack = {};
+	vector<itemStack> tempSt = {};
 	vector<itemIo>    tempIo    = {};
 
-	//tempIo    = { itemIo(ioType::beltOut) };
-	//tempStack = { itemStack(&portableMiner, 1), itemStack(&ironPlate, 10), itemStack(&concrete, 10) };
-	//building minerMk1(++tempId, "Miner Mk.1", tempStack, tempIo, 5, mods::satisfactory);
-	//res.buildings.push_back(minerMk1);
-	//
-	//tempIo    = { itemIo(ioType::beltOut) };
-	//tempStack = { itemStack(&portableMiner, 2), itemStack(&encasedIndustrialBeam, 10), itemStack(&steelBeam, 20), itemStack(&modularFrame, 10) };
-	//building minerMk2(++tempId, "Miner Mk.2", tempStack, tempIo, 12, mods::satisfactory);
-	//res.buildings.push_back(minerMk2);
-	//
-	//tempIo    = { itemIo(ioType::beltOut) };
-	//tempStack = { itemStack(&portableMiner, 3), itemStack(&steelPipe, 50), itemStack(&supercomputer, 5), itemStack(&fusedModularFrame, 10), itemStack(&turboMotor, 3) };
-	//building minerMk3(++tempId, "Miner Mk.3", tempStack, tempIo, 30, mods::satisfactory);
-	//res.buildings.push_back(minerMk3);
-	//
-	//tempIo    = { itemIo(ioType::pipeOut) };
-	//tempStack = { itemStack(&motor, 15), itemStack(&encasedIndustrialBeam, 20), itemStack(&cable, 60) };
-	//building oilExtractor(++tempId, "Oil Extractor", tempStack, tempIo, 40, mods::satisfactory);
-	//res.buildings.push_back(oilExtractor)
-	//
-	//tempIo    = { itemIo(ioType::pipeOut) };
-	//tempStack = { itemStack(&copperSheet, 20), itemStack(&reinforcedIronPlate, 10), itemStack(&rotor, 10) };
-	//building waterExtractor(++tempId, "Water Extractor", tempStack, tempIo, 20, mods::satisfactory);
-	//res.buildings.push_back(waterExtractor)
+	// smelter
+	tempIo.push_back(itemIo(ioType::beltIn));
+	tempIo.push_back(itemIo(ioType::beltOut));
+	tempSt.push_back(itemStack(&result.items[mapItem::ironRod], 5));
+	tempSt.push_back(itemStack(&result.items[mapItem::wire]   , 8));
+	result.buildings[mapBuilding::smelter] = building(1, "Smelter", tempSt, tempIo, false, 4, mods::satisfactory);
+	tempIo.clear();
+	tempSt.clear();
 
-	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::beltOut) };
-	tempStack = { itemStack(&ironRod, 5), itemStack(&wire, 8) };
-	building* smelter = new building(1, "Smelter", tempStack, tempIo, 4, mods::satisfactory);
-	res.buildings[mapBuilding::smelter] = (*smelter);
-	delete smelter;
+	// foundry
+	tempIo.push_back(itemIo(ioType::beltIn));
+	tempIo.push_back(itemIo(ioType::beltIn));
+	tempIo.push_back(itemIo(ioType::beltOut));
+	tempSt.push_back(itemStack(&result.items[mapItem::modularFrame], 10));
+	tempSt.push_back(itemStack(&result.items[mapItem::rotor]       , 10));
+	tempSt.push_back(itemStack(&result.items[mapItem::concrete]    , 20));
+	result.buildings[mapBuilding::foundry] = building(2, "Foundry", tempSt, tempIo, false, 16, mods::satisfactory);
+	tempIo.clear();
+	tempSt.clear();
 
+	// constructor
+	tempIo.push_back(itemIo(ioType::beltIn));
+	tempIo.push_back(itemIo(ioType::beltOut));
+	tempSt.push_back(itemStack(&result.items[mapItem::reinforcedIronPlate], 2));
+	tempSt.push_back(itemStack(&result.items[mapItem::cable]              , 8));
+	result.buildings[mapBuilding::constructor] = building(3, "Constructor", tempSt, tempIo, false, 4, mods::satisfactory);
+	tempIo.clear();
+	tempSt.clear();
+
+	// assembler
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltOut) };
-	tempStack = { itemStack(&modularFrame, 10), itemStack(&rotor, 10), itemStack(&concrete, 20) };
-	building* foundry = new building(2, "Foundry", tempStack, tempIo, 16, mods::satisfactory);
-	res.buildings[mapBuilding::foundry] = (*foundry);
-	delete foundry;
+	tempSt = { itemStack(&result.items[mapItem::reinforcedIronPlate], 8), itemStack(&result.items[mapItem::rotor], 4), itemStack(&result.items[mapItem::cable], 10) };
+	result.buildings[mapBuilding::assembler] = building(4, "Assembler", tempSt, tempIo, false, 15, mods::satisfactory);
 
-	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::beltOut) };
-	tempStack = { itemStack(&reinforcedIronPlate, 2), itemStack(&cable, 8) };
-	building* constructor = new building(3, "Constructor", tempStack, tempIo, 4, mods::satisfactory);
-	res.buildings[mapBuilding::constructor] = (*constructor);
-	delete constructor;
-
-	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltOut) };
-	tempStack = { itemStack(&reinforcedIronPlate, 8), itemStack(&rotor, 4), itemStack(&cable, 10) };
-	building* assembler = new building(4, "Assembler", tempStack, tempIo, 15, mods::satisfactory);
-	res.buildings[mapBuilding::assembler] = (*assembler);
-	delete assembler;
-
+	// manufacturer
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltOut) };
-	tempStack = { itemStack(&motor, 5), itemStack(&heavyModularFrame, 10), itemStack(&cable, 50), itemStack(&plastic, 50) };
-	building* manufacturer = new building(5, "Manufacturer", tempStack, tempIo, 55, mods::satisfactory);
-	res.buildings[mapBuilding::manufacturer] = (*manufacturer);
-	delete manufacturer;
+	tempSt = { itemStack(&result.items[mapItem::motor], 5), itemStack(&result.items[mapItem::heavyModularFrame], 10), itemStack(&result.items[mapItem::cable], 50), itemStack(&result.items[mapItem::plastic], 50) };
+	result.buildings[mapBuilding::manufacturer] = building(5, "Manufacturer", tempSt, tempIo, false, 55, mods::satisfactory);
 
+	// refinery
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::pipeIn), itemIo(ioType::beltOut), itemIo(ioType::pipeOut) };
-	tempStack = { itemStack(&motor, 30), itemStack(&encasedIndustrialBeam, 10), itemStack(&steelBeam, 30), itemStack(&copperSheet, 20) };
-	building* refinery = new building(6, "Refinery", tempStack, tempIo, 30, mods::satisfactory);
-	res.buildings[mapBuilding::refinery] = (*refinery);
-	delete refinery;
+	tempSt = { itemStack(&result.items[mapItem::motor], 30), itemStack(&result.items[mapItem::encasedIndustrialBeam], 10), itemStack(&result.items[mapItem::steelBeam], 30), itemStack(&result.items[mapItem::copperSheet], 20)};
+	result.buildings[mapBuilding::refinery] = building(6, "Refinery", tempSt, tempIo, false, 30, mods::satisfactory);
 
+	// packager
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::pipeIn), itemIo(ioType::beltOut), itemIo(ioType::beltOut) };
-	tempStack = { itemStack(&steelBeam, 20), itemStack(&rubber, 10), itemStack(&plastic, 10) };
-	building* packager = new building(7, "Packager", tempStack, tempIo, 10, mods::satisfactory);
-	res.buildings[mapBuilding::packager] = (*packager);
-	delete packager;
+	tempSt = { itemStack(&result.items[mapItem::steelBeam], 20), itemStack(&result.items[mapItem::rubber], 10), itemStack(&result.items[mapItem::plastic], 10) };
+	result.buildings[mapBuilding::packager] = building(7, "Packager", tempSt, tempIo, false, 10, mods::satisfactory);
 
+	// blender
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::pipeIn), itemIo(ioType::pipeIn), itemIo(ioType::beltOut), itemIo(ioType::pipeOut) };
-	tempStack = { itemStack(&motor, 20), itemStack(&heavyModularFrame, 10), itemStack(&aluminumCasing, 50), itemStack(&radioControlUnit, 5) };
-	building* blender = new building(8, "Blender", tempStack, tempIo, 75, mods::satisfactory);
-	res.buildings[mapBuilding::blender] = (*blender);
-	delete blender;
+	tempSt = { itemStack(&result.items[mapItem::motor], 20), itemStack(&result.items[mapItem::heavyModularFrame], 10), itemStack(&result.items[mapItem::aluminumCasing], 50), itemStack(&result.items[mapItem::radioControlUnit], 5) };
+	result.buildings[mapBuilding::blender] = building(8, "Blender", tempSt, tempIo, false, 75, mods::satisfactory);
 
+	// particle accelerator
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::pipeIn), itemIo(ioType::beltOut) };
-	tempStack = { itemStack(&radioControlUnit, 25), itemStack(&electromagneticControlRod, 100), itemStack(&supercomputer, 10), itemStack(&coolingSystem, 50), itemStack(&fusedModularFrame, 20), itemStack(&turboMotor, 10) };
-	building* particleAccelerator = new building(9, "Particle Accelerator", tempStack, tempIo, 250, 750, mods::satisfactory);
-	res.buildings[mapBuilding::particleAccelerator] = (*particleAccelerator);
-	delete particleAccelerator;
+	tempSt = { itemStack(&result.items[mapItem::radioControlUnit], 25), itemStack(&result.items[mapItem::electromagneticControlRod], 100), itemStack(&result.items[mapItem::supercomputer], 10), itemStack(&result.items[mapItem::coolingSystem], 50), itemStack(&fusedModularFrame, 20), itemStack(&turboMotor, 10) };
+	result.buildings[mapBuilding::particleAccelerator] = building(9, "Particle Accelerator", tempSt, tempIo, false, 250, 750, mods::satisfactory);
 
-	return res;
+	// coal generator
+	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::pipeIn) };
+	tempSt = { itemStack(&reinforcedIronPlate, 20), itemStack(&rotor, 10),  itemStack(&cable,  30) };
+	result.buildings[mapBuilding::coalGenerator] = building(10, "Coal Generator", tempSt, tempIo, true, 75, mods::satisfactory);
+
+	// fuel generator
+	tempIo    = { itemIo(ioType::pipeIn) };
+	tempSt = { itemStack(&computer, 5), itemStack(&heavyModularFrame, 10), itemStack(&motor, 15), itemStack(&rubber, 50), itemStack(&quickwire, 50) };
+	result.buildings[mapBuilding::fuelGenerator] = building(11, "Fuel Generator", tempSt, tempIo, true, 150, mods::satisfactory);
+
+	// nuclear power plant
+	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::pipeIn), itemIo(ioType::beltOut) };
+	tempSt = { itemStack(&concrete, 250), itemStack(&heavyModularFrame, 25), itemStack(&supercomputer, 5), itemStack(&cable, 100), itemStack(&alcladAluminumSheet, 100) };
+	result.buildings[mapBuilding::nuclearPowerPlat] = building(11, "Nuclear Power Plant", tempSt, tempIo, true, 2500, mods::satisfactory);
+
+	// AWSOME sink
+	tempIo    = { itemIo(ioType::beltIn) };
+	tempSt = { itemStack(&reinforcedIronPlate, 15), itemStack(&cable, 30), itemStack(&concrete, 45) };
+	result.buildings[mapBuilding::AWESOMESink] = building(12, "AWESOME Sink", tempSt, tempIo, false, 30, mods::satisfactory);
+
+	tempIo.clear();
+	tempSt.clear();
+
+	vector<itemStack> tempStI = {};
+	vector<itemStack> tempStO = {};
+
+	// limestone low
+	tempStI = {};
+	tempStO = { itemStack(&limestone, 1) };
+	result.recipes[mapRecipe::limestone_low_r] = recipe(1, "Limestone", false, tempStO, tempStI, &minerMk1)
+
+	return result;
 }
