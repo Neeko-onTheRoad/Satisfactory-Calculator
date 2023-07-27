@@ -1098,6 +1098,7 @@ gameItems classInit() {
 	// coal generator
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::pipeIn) };
 	tempSt = { itemStack(&reinforcedIronPlate, 20), itemStack(&rotor, 10),  itemStack(&cable,  30) };
+
 	result.buildings[mapBuilding::coalGenerator] = building(10, "Coal Generator", tempSt, tempIo, true, 75, mods::satisfactory);
 
 	// fuel generator
