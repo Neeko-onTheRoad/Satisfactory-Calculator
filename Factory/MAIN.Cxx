@@ -1066,9 +1066,15 @@ gameItems classInit() {
 	tempSt.clear();
 
 	// assembler
-	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltOut) };
-	tempSt = { itemStack(&result.items[mapItem::reinforcedIronPlate], 8), itemStack(&result.items[mapItem::rotor], 4), itemStack(&result.items[mapItem::cable], 10) };
+	tempIo.push_back(itemIo(ioType::beltIn));
+	tempIo.push_back(itemIo(ioType::beltIn));
+	tempIo.push_back(itemIo(ioType::beltOut));
+	tempSt.push_back(itemStack(&result.items[mapItem::reinforcedIronPlate], 8));
+	tempSt.push_back(itemStack(&result.items[mapItem::rotor]              , 4));
+	tempSt.push_back(itemStack(&result.items[mapItem::cable]              , 10));
 	result.buildings[mapBuilding::assembler] = building(4, "Assembler", tempSt, tempIo, false, 15, mods::satisfactory);
+	tempIo.clear();
+	tempSt.clear();
 
 	// manufacturer
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltIn), itemIo(ioType::beltOut) };
@@ -1098,7 +1104,6 @@ gameItems classInit() {
 	// coal generator
 	tempIo    = { itemIo(ioType::beltIn), itemIo(ioType::pipeIn) };
 	tempSt = { itemStack(&reinforcedIronPlate, 20), itemStack(&rotor, 10),  itemStack(&cable,  30) };
-
 	result.buildings[mapBuilding::coalGenerator] = building(10, "Coal Generator", tempSt, tempIo, true, 75, mods::satisfactory);
 
 	// fuel generator
