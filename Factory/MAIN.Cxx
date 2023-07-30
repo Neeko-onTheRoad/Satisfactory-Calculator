@@ -204,15 +204,15 @@ enum mapRecipe {
 	copperOre_1_low_r,
 	copperOre_1_mid_r,
 	copperOre_1_hig_r,
-	caterium_1_low_r,
-	caterium_1_mid_r,
-	caterium_1_hig_r,
+	cateriumOre_1_low_r,
+	cateriumOre_1_mid_r,
+	cateriumOre_1_hig_r,
 	coal_1_low_r,
 	coal_1_mid_r,
 	coal_1_hig_r,
 	rawQuartz_1_low_r,
 	rawQuartz_1_mid_r,
-	rawQuatrz_1_hig_r,
+	rawQuartz_1_hig_r,
 	sulfur_1_low_r,
 	sulfur_1_mid_r,
 	sulfur_1_hig_r,
@@ -234,15 +234,15 @@ enum mapRecipe {
 	copperOre_2_low_r,
 	copperOre_2_mid_r,
 	copperOre_2_hig_r,
-	caterium_2_low_r,
-	caterium_2_mid_r,
-	caterium_2_hig_r,
+	cateriumOre_2_low_r,
+	cateriumOre_2_mid_r,
+	cateriumOre_2_hig_r,
 	coal_2_low_r,
 	coal_2_mid_r,
 	coal_2_hig_r,
 	rawQuartz_2_low_r,
 	rawQuartz_2_mid_r,
-	rawQuatrz_2_hig_r,
+	rawQuartz_2_hig_r,
 	sulfur_2_low_r,
 	sulfur_2_mid_r,
 	sulfur_2_hig_r,
@@ -264,15 +264,15 @@ enum mapRecipe {
 	copperOre_3_low_r,
 	copperOre_3_mid_r,
 	copperOre_3_hig_r,
-	caterium_3_low_r,
-	caterium_3_mid_r,
-	caterium_3_hig_r,
+	cateriumOre_3_low_r,
+	cateriumOre_3_mid_r,
+	cateriumOre_3_hig_r,
 	coal_3_low_r,
 	coal_3_mid_r,
 	coal_3_hig_r,
 	rawQuartz_3_low_r,
 	rawQuartz_3_mid_r,
-	rawQuatrz_3_hig_r,
+	rawQuartz_3_hig_r,
 	sulfur_3_low_r,
 	sulfur_3_mid_r,
 	sulfur_3_hig_r,
@@ -373,7 +373,10 @@ enum mapRecipe {
 	packagedNitricAcid_r,
 	packagedNitrogenGass_r,
 
-	biomass_r,
+	biomass_alienProtein_r,
+	biomass_leaves_r,
+	biomass_mycelia_r,
+	biomass_wood_r,
 	packagedOil_r,
 	packagedHeavyOilResidue_r,
 	solidBiofuel_r,
@@ -395,7 +398,8 @@ enum mapRecipe {
 	explosiveRebar_r,
 	rifleAmmo_r,
 	homingRifleAmmo_r,
-	turboRifleAmmo_r,
+	turboRifleAmmo_blenter_r,
+	turboRifleAmmo_manufacturer_r,
 	nobelisk_r,
 	gasNobelisk_r,
 	pulseNobelisk_r,
@@ -420,6 +424,99 @@ enum mapRecipe {
 	magneticFieldGenerator_r,
 	thermalPropulsionRocket_r,
 	nuclearPasta_r,
+
+	alt_ironAlloyIngot_r,
+	alt_pureIronIngot_r,
+	alt_copperAlloyIngot_r,
+	alt_pureCopperIngot_r,
+	alt_pureCateriumIngot_r,
+	alt_cokeSteelIngot_r,
+	alt_compactedSteelIngot_r,
+	alt_solidSteelIngot_r,
+	alt_pureAluminumIngot_r,
+
+	alt_fineConcrete_r,
+	alt_rubberConcrete_r,
+	alt_wetConcrete_r,
+	alt_pureQuartzCrystal_r,
+	alt_cheapSilica_r,
+	alt_polymerResin_r,
+	alt_electrodeAluminumScrap_r,
+	alt_instantScrap_r,
+	
+	alt_heavyOilResidue_r,
+	alt_dilutedFuel_r,
+	alt_turboBlendFuel_r,
+	alt_turbaHeavyFuel_r,
+	alt_turboFuel_r,
+	alt_sloppyAlumina_r,
+	
+	alt_steelRod_r,
+	alt_castScrew_r,
+	alt_steelScrew_r,
+	alt_coatedIronPlate_r,
+	alt_steelCoatedPlate_r,
+	alt_adheredIronPlate_r,
+	alt_boltedIronPlate_r,
+	alt_stitchedIronPlate_r,
+	alt_steamedCopperSheet_r,
+	alt_alcladCasing,
+	alt_encasedIndustrialPipe_r,
+	alt_boltedFrame_r,
+	alt_steeledFrame_r,
+	alt_heavyEncasedFrame_r,
+	alt_heavyFlexibleFrame_r,
+	alt_heatFusedFrame_r,
+	alt_polyesterFabric_r,
+	alt_recycledPlastic_r,
+	alt_recycledRubber_r,
+
+	alt_copperRotor_r,
+	alt_steelRotor_r,
+	alt_quickwireStator_r,
+	alt_classicBattery_r,
+	alt_electricMotor_r,
+	alt_rigourMotor_r,
+	alt_heatExchanger_r,
+	alt_coolingDevice_r,
+	alt_turboElectricMotor_r,
+	alt_turboPressureMotor_r,
+
+	alt_cateriumWire_r,
+	alt_fusedWire_r,
+	alt_ironWire_r,
+	alt_coatedCable_r,
+	alt_insulatedCable_r,
+	alt_quickwireCable_r,
+	alt_fusedQuickwire_r,
+	alt_cateriumCircuitBoard_r,
+	alt_electrodeCircuitBoard_r,
+	alt_siliconCircuitBoard_r,
+	alt_siliconHighSpeedConnector_r,
+
+	alt_cateriumComputer_r,
+	alt_crystalComputer_r,
+	alt_OCSupecomputer_r,
+	alt_superStateComputer_r,
+	alt_radioConnectionUnit_r,
+	alt_radioControlSysteam_r,
+	alt_insulatedCrystalOscillator_r,
+
+	alt_coatedIronCanister_r,
+	alt_steelCanister_r,
+
+	alt_compactedCoal_r,
+	alt_dilutedPackagedFuel_r,
+	alt_uraniumFuelUnit_r,
+	alt_plutoniumFuelUnit_r,
+
+	alt_fineBlackPowder_r,
+	alt_crystalBeacon_r,
+
+	alt_electromagneticConnectionRod_r,
+	alt_infusedUraniumCell_r,
+	alt_fertileUranium_r,
+	alt_instantPlutoniumCell_r,
 };
 
 enum mapBuilding {
@@ -628,7 +725,9 @@ private:
 	string            displayName;
 	bool              isAlt;
 	vector<itemStack> itemOut;
+	vector<itemIo>    itemOutPerMin;
 	vector<itemStack> itemIn;
+	vector<itemIo>    itemInPerMin;
 	building*         productionOn;
 	lDouble           productionTime;
 	mods              cameFrom;
@@ -701,7 +800,9 @@ recipe::recipe() {
 	this->displayName    = string();
 	this->isAlt          = bool();
 	this->itemOut        = vector<itemStack>();
+	this->itemOutPerMin  = vector<itemIo>();
 	this->itemIn         = vector<itemStack>();
+	this->itemInPerMin   = vector<itemIo>();
 	this->productionOn   = nullptr;
 	this->productionTime = lDouble();
 	this->cameFrom       = mods::null;
@@ -815,13 +916,23 @@ recipe::recipe(
 	lDouble           _productionTime,
 	mods              _cameFrom
 ) {
-	this->id           = _id;
-	this->displayName  = _displayName;
-	this->isAlt        = _isAlt;
-	this->itemOut      = _itemOut;
-	this->itemIn       = _itemIn;
-	this->productionOn = _productionOn;
-	this->cameFrom     = _cameFrom;
+	this->id             = _id;
+	this->displayName    = _displayName;
+	this->isAlt          = _isAlt;
+	this->itemOut        = _itemOut;
+	this->itemIn         = _itemIn;
+	this->productionOn   = _productionOn;
+	this->productionTime = _productionTime;
+	this->cameFrom       = _cameFrom;
+
+	for (auto i : _itemOut) {
+		ioType type = (i.getContent()->getIsLiquid() ? ioType::pipeOut : ioType::beltOut);
+		this->itemOutPerMin.push_back(itemIo(i.getContent(), (i.getAmount() * _productionTime), type));
+	}
+	for (auto i : _itemIn) {
+		ioType type = (i.getContent()->getIsLiquid() ? ioType::pipeIn : ioType::beltIn);
+		this->itemInPerMin.push_back(itemIo(i.getContent(), (i.getAmount() * _productionTime), type));
+	}
 }
 
 //goto class getVar
@@ -1029,7 +1140,7 @@ gameItems classInit() {
 	tempSt.push_back(itemStack(&result.items[mapItem::supercomputer],       5));
 	tempSt.push_back(itemStack(&result.items[mapItem::cable],               100));
 	tempSt.push_back(itemStack(&result.items[mapItem::alcladAluminumSheet], 100));
-	result.buildings[mapBuilding::nuclearPowerPlat] = building(11, "Nuclear Power Plant", tempSt, tempIo, true, 2500, mods::satisfactory);
+	result.buildings[mapBuilding::nuclearPowerPlat] = building(12, "Nuclear Power Plant", tempSt, tempIo, true, 2500, mods::satisfactory);
 	tempIo.clear();
 	tempSt.clear();
 
@@ -1038,17 +1149,159 @@ gameItems classInit() {
 	tempSt.push_back(itemStack(&result.items[mapItem::reinforcedIronPlate], 15));
 	tempSt.push_back(itemStack(&result.items[mapItem::cable],               30));
 	tempSt.push_back(itemStack(&result.items[mapItem::computer],            45));
-	result.buildings[mapBuilding::AWESOMESink] = building(12, "AWESOME Sink", tempSt, tempIo, false, 30, mods::satisfactory);
+	result.buildings[mapBuilding::AWESOMESink] = building(13, "AWESOME Sink", tempSt, tempIo, false, 30, mods::satisfactory);
 	tempIo.clear();
 	tempSt.clear();
 
-	vector<itemStack> tempStI = {};
-	vector<itemStack> tempStO = {};
+	vector<itemStack> tempSI = {};
+	vector<itemStack> tempSO = {};
 
-	// limestone 1 low
-	tempStO.push_back(itemStack(&result.items[mapItem::limestone], 1));
-	result.recipes[mapRecipe::limestone_1_low_r] = recipe(1, "Limestone", false, tempStO, tempStI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30), mods::satisfactory);
-	tempStO.clear();
+	// limestone
+	tempSO.push_back(itemStack(&result.items[mapItem::limestone], 1));
+	result.recipes[mapRecipe::limestone_1_low_r] = recipe(1, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::limestone_1_mid_r] = recipe(2, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::limestone_1_hig_r] = recipe(3, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::limestone_2_low_r] = recipe(4, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::limestone_2_mid_r] = recipe(5, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::limestone_2_hig_r] = recipe(6, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::limestone_3_low_r] = recipe(7, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::limestone_3_mid_r] = recipe(8, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::limestone_3_hig_r] = recipe(9, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+	
+	// ironOre
+	tempSO.push_back(itemStack(&result.items[mapItem::ironOre], 1));
+	result.recipes[mapRecipe::ironOre_1_low_r] = recipe(10, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::ironOre_1_mid_r] = recipe(11, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::ironOre_1_hig_r] = recipe(12, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::ironOre_2_low_r] = recipe(13, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::ironOre_2_mid_r] = recipe(14, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::ironOre_2_hig_r] = recipe(15, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::ironOre_3_low_r] = recipe(16, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::ironOre_3_mid_r] = recipe(17, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::ironOre_3_hig_r] = recipe(18, "Iron Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// copperOre
+	tempSO.push_back(itemStack(&result.items[mapItem::copperOre], 1));
+	result.recipes[mapRecipe::copperOre_1_low_r] = recipe(19, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::copperOre_1_mid_r] = recipe(20, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::copperOre_1_hig_r] = recipe(21, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::copperOre_2_low_r] = recipe(22, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::copperOre_2_mid_r] = recipe(23, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::copperOre_2_hig_r] = recipe(24, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::copperOre_3_low_r] = recipe(25, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::copperOre_3_mid_r] = recipe(26, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::copperOre_3_hig_r] = recipe(27, "Copper Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// cateriumOre
+	tempSO.push_back(itemStack(&result.items[mapItem::cateriumOre], 1));
+	result.recipes[mapRecipe::cateriumOre_1_low_r] = recipe(28, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::cateriumOre_1_mid_r] = recipe(29, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::cateriumOre_1_hig_r] = recipe(30, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::cateriumOre_2_low_r] = recipe(31, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::cateriumOre_2_mid_r] = recipe(32, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::cateriumOre_2_hig_r] = recipe(33, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::cateriumOre_3_low_r] = recipe(34, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::cateriumOre_3_mid_r] = recipe(35, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::cateriumOre_3_hig_r] = recipe(36, "Caterium Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// coal
+	tempSO.push_back(itemStack(&result.items[mapItem::coal], 1));
+	result.recipes[mapRecipe::coal_1_low_r] = recipe(37, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::coal_1_mid_r] = recipe(38, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::coal_1_hig_r] = recipe(39, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::coal_2_low_r] = recipe(40, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::coal_2_mid_r] = recipe(41, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::coal_2_hig_r] = recipe(42, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::coal_3_low_r] = recipe(43, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::coal_3_mid_r] = recipe(44, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::coal_3_hig_r] = recipe(45, "Coal", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// rawQuartz
+	tempSO.push_back(itemStack(&result.items[mapItem::rawQuartz], 1));
+	result.recipes[mapRecipe::rawQuartz_1_low_r] = recipe(46, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::rawQuartz_1_mid_r] = recipe(47, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::rawQuartz_1_hig_r] = recipe(48, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::rawQuartz_2_low_r] = recipe(49, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::rawQuartz_2_mid_r] = recipe(50, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::rawQuartz_2_hig_r] = recipe(51, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::rawQuartz_3_low_r] = recipe(52, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::rawQuartz_3_mid_r] = recipe(53, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::rawQuartz_3_hig_r] = recipe(54, "Raw Quartz", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// sulfur
+	tempSO.push_back(itemStack(&result.items[mapItem::sulfur], 1));
+	result.recipes[mapRecipe::sulfur_1_low_r] = recipe(55, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::sulfur_1_mid_r] = recipe(56, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::sulfur_1_hig_r] = recipe(57, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::sulfur_2_low_r] = recipe(58, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::sulfur_2_mid_r] = recipe(59, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::sulfur_2_hig_r] = recipe(60, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::sulfur_3_low_r] = recipe(61, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::sulfur_3_mid_r] = recipe(62, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::sulfur_3_hig_r] = recipe(63, "Sulfur", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// bauxite
+	tempSO.push_back(itemStack(&result.items[mapItem::bauxite], 1));
+	result.recipes[mapRecipe::bauxite_1_low_r] = recipe(64, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::bauxite_1_mid_r] = recipe(65, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::bauxite_1_hig_r] = recipe(66, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::bauxite_2_low_r] = recipe(67, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::bauxite_2_mid_r] = recipe(68, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::bauxite_2_hig_r] = recipe(69, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::bauxite_3_low_r] = recipe(70, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::bauxite_3_mid_r] = recipe(71, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::bauxite_3_hig_r] = recipe(72, "Bauxite", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// SAMOre
+	tempSO.push_back(itemStack(&result.items[mapItem::SAMOre], 1));
+	result.recipes[mapRecipe::SAMOre_1_low_r] = recipe(73, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::SAMOre_1_mid_r] = recipe(74, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::SAMOre_1_hig_r] = recipe(75, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::SAMOre_2_low_r] = recipe(76, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::SAMOre_2_mid_r] = recipe(77, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::SAMOre_2_hig_r] = recipe(78, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::SAMOre_3_low_r] = recipe(79, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::SAMOre_3_mid_r] = recipe(80, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::SAMOre_3_hig_r] = recipe(81, "SAM Ore", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// uranium
+	tempSO.push_back(itemStack(&result.items[mapItem::uranium], 1));
+	result.recipes[mapRecipe::uranium_1_low_r] = recipe(82, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
+	result.recipes[mapRecipe::uranium_1_mid_r] = recipe(83, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::uranium_1_hig_r] = recipe(84, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::uranium_2_low_r] = recipe(85, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(60),  mods::satisfactory);
+	result.recipes[mapRecipe::uranium_2_mid_r] = recipe(86, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::uranium_2_hig_r] = recipe(87, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk2], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::uranium_3_low_r] = recipe(88, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(120), mods::satisfactory);
+	result.recipes[mapRecipe::uranium_3_mid_r] = recipe(89, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(240), mods::satisfactory);
+	result.recipes[mapRecipe::uranium_3_hig_r] = recipe(90, "Uranium", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk3], perMin2sec(480), mods::satisfactory);
+	tempSO.clear();
+
+	// ironIngot
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],   1));
+	tempSO.push_back(itemStack(&result.items[mapItem::ironIngot], 1));
+	result.recipes[mapRecipe::ironIngot_r] = recipe(91, "Iron Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30), mods::satisfactory);
+	tempSI.clear();
+	tempSO.clear();
+
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre], 2));
+
+	// copperIngot
+
+	// cateriumIngot
+
+	// steelIngot
+
+	// aluminumIngot
 
 	return result;
 }
@@ -1064,4 +1317,5 @@ lDouble perMin2sec(lDouble perMin) {
 //goto main
 
 int main(void) {
+
 }
