@@ -287,8 +287,8 @@ enum mapRecipe {
 	uranium_3_hig_r,
 
 	ironIngot_r,
-	copperOre_r,
-	cateriumOre_r,
+	copperIngot_r,
+	cateriumIngot_r,
 	steelIngot_r,
 	aluminumIngot_r,
 
@@ -602,10 +602,10 @@ public:
 		mods            _cameFrom
 	);
 
-	auto getId();
-	auto getDisplayName();
-	auto getIsLiquid();
-	auto getCameFrom();
+	auto getId()          { return this->id; }
+	auto getDisplayName() { return this->displayName; }
+	auto getIsLiquid()    { return this->isLiquid; }
+	auto getCameFrom()    { return this->cameFrom; }
 
 	bool operator == (item comp);
 	bool operator != (item comp);
@@ -628,9 +628,9 @@ public:
 		ioType  _pathType
 	);
 
-	auto getContent();
-	auto getPerMin();
-	auto getPathType();
+	auto getContent()  { return this->content; }
+	auto getPerMin()   { return this->perMin; }
+	auto getPathType() { return this->pathType; }
 };
 
 class itemStack {
@@ -645,8 +645,8 @@ public:
 		unInt _amount
 	);
 
-	auto getContent();
-	auto getAmount();
+	auto getContent() { return this->content; };
+	auto getAmount()  { return this->amount; }
 };
 
 class building {
@@ -684,15 +684,15 @@ public:
 		mods              _cameFrom
 	);
 
-	auto getId();
-	auto getDisplayName();
-	auto getBuildCost();
-	auto getItemPath();
-	auto getLowVoltageUse();
-	auto getHighVoltageUse();
-	auto getVoltageUse();
-	auto getIsVariableVoltage();
-	auto getCameFrom();
+	auto getId()                { return this->id; }
+	auto getDisplayName()       { return this->displayName; }
+	auto getBuildCost()         { return this->buildCost; }
+	auto getItemPath()          { return this->itemPath; }
+	auto getLowVoltageUse()     { return this->lowVoltageUse; }
+	auto getHighVoltageUse()    { return this->highVoltageUse; }
+	auto getVoltageUse()        { return this->voltageUse; }
+	auto getIsVariableVoltage() { return this->isVariableVoltage; }
+	auto getCameFrom()          { return this->cameFrom; }
 
 	bool operator == (building comp);
 	bool operator != (building comp);
@@ -715,8 +715,8 @@ public:
 		lDouble   _amount
 	);
 
-	auto getContent();
-	auto getAmount();
+	auto getContent() { return this->content; }
+	auto getAmount()  { return this->amount; }
 };
 
 class recipe {
@@ -731,6 +731,7 @@ private:
 	building*         productionOn;
 	lDouble           productionTime;
 	mods              cameFrom;
+	bool              isEnable;
 
 public:
 	recipe();
@@ -745,14 +746,14 @@ public:
 		mods              _cameFrom
 	);
 
-	auto getId();
-	auto getDisplayName();
-	auto getIsAlt();
-	auto getItemOut();
-	auto getItemIn();
-	auto getProductionOn();
-	auto getProductionTime();
-	auto getCameFrom();
+	auto getId()             { return this->id; }
+	auto getDisplayName()    { return this->displayName; }
+	auto getIsAlt()          { return this->isAlt; }
+	auto getItemOut()        { return this->itemOut; }
+	auto getItemIn()         { return this->itemIn; }
+	auto getProductionOn()   { return this->productionOn; }
+	auto getProductionTime() { return this->productionTime; }
+	auto getCameFrom()       { return this->cameFrom; }
 };
 
 //goto class initFunc null
@@ -806,6 +807,7 @@ recipe::recipe() {
 	this->productionOn   = nullptr;
 	this->productionTime = lDouble();
 	this->cameFrom       = mods::null;
+	this->isEnable       = false;
 }
 
 //goto class initFunc
@@ -933,43 +935,9 @@ recipe::recipe(
 		ioType type = (i.getContent()->getIsLiquid() ? ioType::pipeIn : ioType::beltIn);
 		this->itemInPerMin.push_back(itemIo(i.getContent(), (i.getAmount() * _productionTime), type));
 	}
+
+	this->isEnable = false;
 }
-
-//goto class getVar
-
-auto item::getId()          { return this->id; }
-auto item::getDisplayName() { return this->displayName; }
-auto item::getIsLiquid()    { return this->isLiquid; }
-auto item::getCameFrom()    { return this->cameFrom; }
-
-auto itemIo::getContent()  { return this->content; }
-auto itemIo::getPerMin()   { return this->perMin; }
-auto itemIo::getPathType() { return this->pathType; }
-
-auto itemStack::getContent() { return this->content; }
-auto itemStack::getAmount()  { return this->amount; }
-
-auto building::getId()                { return this->id; }
-auto building::getDisplayName()       { return this->displayName; }
-auto building::getBuildCost()         { return this->buildCost; }
-auto building::getItemPath()          { return this->itemPath; }
-auto building::getLowVoltageUse()     { return this->lowVoltageUse; }
-auto building::getHighVoltageUse()    { return this->highVoltageUse; }
-auto building::getVoltageUse()        { return this->voltageUse; }
-auto building::getIsVariableVoltage() { return this->isVariableVoltage; }
-auto building::getCameFrom()          { return this->cameFrom; }
-
-auto buildingStack::getContent() { return this->content; }
-auto buildingStack::getAmount()  { return this->amount; }
-
-auto recipe::getId()             { return this->id; }
-auto recipe::getDisplayName()    { return this->displayName; }
-auto recipe::getIsAlt()          { return this->isAlt; }
-auto recipe::getItemOut()        { return this->itemOut; }
-auto recipe::getItemIn()         { return this->itemIn; }
-auto recipe::getProductionOn()   { return this->productionOn; }
-auto recipe::getProductionTime() { return this->productionTime; }
-auto recipe::getCameFrom()       { return this->cameFrom; }
 
 //goto class operator
 
@@ -1002,6 +970,9 @@ gameItems classInit() {
 
 	vector<itemStack> tempSt = {};
 	vector<itemIo>    tempIo = {};
+
+	tempSt.reserve(5);
+	tempIo.reserve(6);
 
 	// smelter
 	tempIo.push_back(itemIo(ioType::beltIn));
@@ -1156,6 +1127,9 @@ gameItems classInit() {
 	vector<itemStack> tempSI = {};
 	vector<itemStack> tempSO = {};
 
+	tempSI.reserve(4);
+	tempSO.reserve(2);
+
 	// limestone
 	tempSO.push_back(itemStack(&result.items[mapItem::limestone], 1));
 	result.recipes[mapRecipe::limestone_1_low_r] = recipe(1, "Limestone", false, tempSO, tempSI, &result.buildings[mapBuilding::minerMk1], perMin2sec(30),  mods::satisfactory);
@@ -1287,19 +1261,84 @@ gameItems classInit() {
 	tempSO.clear();
 
 	// ironIngot
-	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],   1));
 	tempSO.push_back(itemStack(&result.items[mapItem::ironIngot], 1));
-	result.recipes[mapRecipe::ironIngot_r] = recipe(91, "Iron Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30), mods::satisfactory);
-	tempSI.clear();
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],   1));
+	result.recipes[mapRecipe::ironIngot_r] = recipe(91, "Iron Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30.f), mods::satisfactory);
 	tempSO.clear();
+	tempSI.clear();
 
-	tempSI.push_back(itemStack(&result.items[mapItem::ironOre], 2));
+	tempSO.push_back(itemStack(&result.items[mapItem::ironIngot], 5));
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],   2));
+	tempSI.push_back(itemStack(&result.items[mapItem::copperOre], 2));
+	result.recipes[mapRecipe::alt_ironAlloyIngot_r] = recipe(92, "Alternate: Iron Alloy Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(50.f/5.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::ironIngot], 13));
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],   7));
+	tempSI.push_back(itemStack(&result.items[mapItem::water],     4));
+	result.recipes[mapRecipe::alt_pureIronIngot_r] = recipe(93, "Alternate: Pure Iron Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(65.f/13.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
 
 	// copperIngot
+	tempSO.push_back(itemStack(&result.items[mapItem::copperIngot], 1));
+	tempSI.push_back(itemStack(&result.items[mapItem::copperOre],   1));
+	result.recipes[mapRecipe::copperIngot_r] = recipe(94, "Copper Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::copperIngot], 20));
+	tempSI.push_back(itemStack(&result.items[mapItem::copperOre],   10));
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],     5));
+	result.recipes[mapRecipe::alt_copperAlloyIngot_r] = recipe(95, "Alternate: Copper Alloy Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(100.f/20.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::copperIngot], 15));
+	tempSI.push_back(itemStack(&result.items[mapItem::copperOre],   6));
+	tempSI.push_back(itemStack(&result.items[mapItem::water],       4));
+	result.recipes[mapRecipe::alt_pureCopperIngot_r] = recipe(96, "Alternate: Pure Copper Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(37.5/15.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
 
 	// cateriumIngot
+	tempSO.push_back(itemStack(&result.items[mapItem::cateriumIngot], 1));
+	tempSI.push_back(itemStack(&result.items[mapItem::cateriumOre],   3));
+	result.recipes[mapRecipe::cateriumIngot_r] = recipe(97, "Caterium Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(15.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::cateriumIngot], 1));
+	tempSI.push_back(itemStack(&result.items[mapItem::cateriumOre],   2));
+	tempSI.push_back(itemStack(&result.items[mapItem::water],         2));
+	result.recipes[mapRecipe::alt_pureCateriumIngot_r] = recipe(98, "Alternate: Pure Caterium Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(12.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
 
 	// steelIngot
+	tempSO.push_back(itemStack(&result.items[mapItem::steelIngot], 3));
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],    3));
+	tempSI.push_back(itemStack(&result.items[mapItem::coal],       3));
+	result.recipes[mapRecipe::steelIngot_r] = recipe(99, "Steel Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(45.f/3.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::steelIngot],    20));
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],       15));
+	tempSI.push_back(itemStack(&result.items[mapItem::petroleumCoke], 15));
+	result.recipes[mapRecipe::alt_cokeSteelIngot_r] = recipe(100, "Alternate: Coke Steel Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(100.f/20.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::steelBeam],     10));
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],       6));
+	tempSI.push_back(itemStack(&result.items[mapItem::compactedCoal], 3));
+	result.recipes[mapRecipe::alt_compactedSteelIngot_r] = recipe(101, "Alternate: Compacted Steel Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(37.5/20.f), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+
 
 	// aluminumIngot
 
@@ -1318,4 +1357,5 @@ lDouble perMin2sec(lDouble perMin) {
 
 int main(void) {
 
+	return EXIT_SUCCESS;
 }
