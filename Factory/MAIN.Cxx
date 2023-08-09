@@ -27,7 +27,8 @@ typedef long double      lDouble;
 
 //goto function def
 
-lDouble perMin2sec(lDouble perMin);
+lDouble perMin2sec            (lDouble perMin);
+lDouble getPowerUseByOverclock(lDouble normalPowerUse, lDouble overclock);
 
 //goto enum
 
@@ -1263,56 +1264,56 @@ gameItems classInit() {
 	// ironIngot
 	tempSO.push_back(itemStack(&result.items[mapItem::ironIngot], 1));
 	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],   1));
-	result.recipes[mapRecipe::ironIngot_r] = recipe(91, "Iron Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30.f), mods::satisfactory);
+	result.recipes[mapRecipe::ironIngot_r] = recipe(91, "Iron Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
 	tempSO.push_back(itemStack(&result.items[mapItem::ironIngot], 5));
 	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],   2));
 	tempSI.push_back(itemStack(&result.items[mapItem::copperOre], 2));
-	result.recipes[mapRecipe::alt_ironAlloyIngot_r] = recipe(92, "Alternate: Iron Alloy Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(50.f/5.f), mods::satisfactory);
+	result.recipes[mapRecipe::alt_ironAlloyIngot_r] = recipe(92, "Alternate: Iron Alloy Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(50.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
 	tempSO.push_back(itemStack(&result.items[mapItem::ironIngot], 13));
 	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],   7));
 	tempSI.push_back(itemStack(&result.items[mapItem::water],     4));
-	result.recipes[mapRecipe::alt_pureIronIngot_r] = recipe(93, "Alternate: Pure Iron Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(65.f/13.f), mods::satisfactory);
+	result.recipes[mapRecipe::alt_pureIronIngot_r] = recipe(93, "Alternate: Pure Iron Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(65.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
 	// copperIngot
 	tempSO.push_back(itemStack(&result.items[mapItem::copperIngot], 1));
 	tempSI.push_back(itemStack(&result.items[mapItem::copperOre],   1));
-	result.recipes[mapRecipe::copperIngot_r] = recipe(94, "Copper Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30.f), mods::satisfactory);
+	result.recipes[mapRecipe::copperIngot_r] = recipe(94, "Copper Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
 	tempSO.push_back(itemStack(&result.items[mapItem::copperIngot], 20));
 	tempSI.push_back(itemStack(&result.items[mapItem::copperOre],   10));
 	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],     5));
-	result.recipes[mapRecipe::alt_copperAlloyIngot_r] = recipe(95, "Alternate: Copper Alloy Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(100.f/20.f), mods::satisfactory);
+	result.recipes[mapRecipe::alt_copperAlloyIngot_r] = recipe(95, "Alternate: Copper Alloy Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(100.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
 	tempSO.push_back(itemStack(&result.items[mapItem::copperIngot], 15));
 	tempSI.push_back(itemStack(&result.items[mapItem::copperOre],   6));
 	tempSI.push_back(itemStack(&result.items[mapItem::water],       4));
-	result.recipes[mapRecipe::alt_pureCopperIngot_r] = recipe(96, "Alternate: Pure Copper Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(37.5/15.f), mods::satisfactory);
+	result.recipes[mapRecipe::alt_pureCopperIngot_r] = recipe(96, "Alternate: Pure Copper Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(37.5 / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
 	// cateriumIngot
 	tempSO.push_back(itemStack(&result.items[mapItem::cateriumIngot], 1));
 	tempSI.push_back(itemStack(&result.items[mapItem::cateriumOre],   3));
-	result.recipes[mapRecipe::cateriumIngot_r] = recipe(97, "Caterium Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(15.f), mods::satisfactory);
+	result.recipes[mapRecipe::cateriumIngot_r] = recipe(97, "Caterium Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(15.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
 	tempSO.push_back(itemStack(&result.items[mapItem::cateriumIngot], 1));
 	tempSI.push_back(itemStack(&result.items[mapItem::cateriumOre],   2));
 	tempSI.push_back(itemStack(&result.items[mapItem::water],         2));
-	result.recipes[mapRecipe::alt_pureCateriumIngot_r] = recipe(98, "Alternate: Pure Caterium Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(12.f), mods::satisfactory);
+	result.recipes[mapRecipe::alt_pureCateriumIngot_r] = recipe(98, "Alternate: Pure Caterium Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(12.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
@@ -1320,27 +1321,79 @@ gameItems classInit() {
 	tempSO.push_back(itemStack(&result.items[mapItem::steelIngot], 3));
 	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],    3));
 	tempSI.push_back(itemStack(&result.items[mapItem::coal],       3));
-	result.recipes[mapRecipe::steelIngot_r] = recipe(99, "Steel Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(45.f/3.f), mods::satisfactory);
+	result.recipes[mapRecipe::steelIngot_r] = recipe(99, "Steel Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(45.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
 	tempSO.push_back(itemStack(&result.items[mapItem::steelIngot],    20));
 	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],       15));
 	tempSI.push_back(itemStack(&result.items[mapItem::petroleumCoke], 15));
-	result.recipes[mapRecipe::alt_cokeSteelIngot_r] = recipe(100, "Alternate: Coke Steel Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(100.f/20.f), mods::satisfactory);
+	result.recipes[mapRecipe::alt_cokeSteelIngot_r] = recipe(100, "Alternate: Coke Steel Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(100.f / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
-	tempSO.push_back(itemStack(&result.items[mapItem::steelBeam],     10));
-	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],       6));
-	tempSI.push_back(itemStack(&result.items[mapItem::compactedCoal], 3));
-	result.recipes[mapRecipe::alt_compactedSteelIngot_r] = recipe(101, "Alternate: Compacted Steel Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(37.5/20.f), mods::satisfactory);
+	tempSO.push_back(itemStack(&result.items[mapItem::steelIngot],     10));
+	tempSI.push_back(itemStack(&result.items[mapItem::ironOre],        6));
+	tempSI.push_back(itemStack(&result.items[mapItem::compactedCoal],  3));
+	result.recipes[mapRecipe::alt_compactedSteelIngot_r] = recipe(101, "Alternate: Compacted Steel Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(37.5 / tempSO[0].getAmount()), mods::satisfactory);
 	tempSO.clear();
 	tempSI.clear();
 
-
+	tempSO.push_back(itemStack(&result.items[mapItem::steelIngot], 3));
+	tempSI.push_back(itemStack(&result.items[mapItem::ironIngot],  2));
+	tempSI.push_back(itemStack(&result.items[mapItem::coal],       2));
+	result.recipes[mapRecipe::alt_solidSteelIngot_r] = recipe(102, "Alternate: Solid Steel Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(60.f / tempSO[0].getAmount()), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
 
 	// aluminumIngot
+	tempSO.push_back(itemStack(&result.items[mapItem::aluminumIngot], 4));
+	tempSI.push_back(itemStack(&result.items[mapItem::aluminumScrap], 6));
+	tempSI.push_back(itemStack(&result.items[mapItem::silica],        5));
+	result.recipes[mapRecipe::aluminumIngot_r] = recipe(103, "Aluminum Ingot", false, tempSO, tempSI, &result.buildings[mapBuilding::foundry], perMin2sec(60.f / tempSO[0].getAmount()), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::aluminumIngot], 1));
+	tempSI.push_back(itemStack(&result.items[mapItem::aluminumScrap], 2));
+	result.recipes[mapRecipe::alt_pureAluminumIngot_r] = recipe(104, "Alternate: Pure Aluminum Ingot", true, tempSO, tempSI, &result.buildings[mapBuilding::smelter], perMin2sec(30.f / tempSO[0].getAmount()), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	// concrete
+	tempSO.push_back(itemStack(&result.items[mapItem::concrete],  1));
+	tempSI.push_back(itemStack(&result.items[mapItem::limestone], 3));
+	result.recipes[mapRecipe::concrete_r] = recipe(103, "Concrete", false, tempSO, tempSI, &result.buildings[mapBuilding::constructor], perMin2sec(15.f / tempSO[0].getAmount()), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::concrete],  10));
+	tempSI.push_back(itemStack(&result.items[mapItem::silica],    3));
+	tempSI.push_back(itemStack(&result.items[mapItem::limestone], 12));
+	result.recipes[mapRecipe::alt_fineConcrete_r] = recipe(104, "Alternate: Fine Concrete", true, tempSO, tempSI, &result.buildings[mapBuilding::assembler], perMin2sec(25.f / tempSO[0].getAmount()), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::concrete],  9));
+	tempSI.push_back(itemStack(&result.items[mapItem::limestone], 10));
+	tempSI.push_back(itemStack(&result.items[mapItem::rubber],    2));
+	result.recipes[mapRecipe::alt_rubberConcrete_r] = recipe(105, "Alternate: Rubber Concrete", true, tempSO, tempSI, &result.buildings[mapBuilding::assembler], perMin2sec(45.f / tempSO[0].getAmount()), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	tempSO.push_back(itemStack(&result.items[mapItem::concrete],  4));
+	tempSI.push_back(itemStack(&result.items[mapItem::limestone], 6));
+	tempSI.push_back(itemStack(&result.items[mapItem::water],     5));
+	result.recipes[mapRecipe::alt_wetConcrete_r] = recipe(106, "Alternate: Wet Concrete", true, tempSO, tempSI, &result.buildings[mapBuilding::refinery], perMin2sec(80.f / tempSO[0].getAmount()), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
+
+	// quartzCrysal
+	tempSO.push_back(itemStack(&result.items[mapItem::quartzCrystal], 3));
+	tempSI.push_back(itemStack(&result.items[mapItem::rawQuartz],     5));
+	result.recipes[mapRecipe::quartzCrystal_r] = recipe(107, "Quartz Crystal", false, tempSO, tempSI, &result.buildings[mapBuilding::constructor], perMin2sec(22.5 / tempSO[0].getAmount()), mods::satisfactory);
+	tempSO.clear();
+	tempSI.clear();
 
 	return result;
 }
@@ -1351,6 +1404,13 @@ lDouble perMin2sec(lDouble perMin) {
 	lDouble perSec = perMin / 60.f;
 	lDouble timePr = 1.f / perSec;
 	return timePr;
+}
+
+lDouble getPowerUseByOverclock(lDouble normalPowerUse, lDouble overclock) {
+	lDouble result = overclock / 100;
+	result = pow(result, 1.321928);
+	result *= normalPowerUse;
+	return result;
 }
 
 //goto main
